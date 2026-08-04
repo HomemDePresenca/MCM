@@ -25,6 +25,8 @@
             --red-glow: #E63946;
             --white-main: #F5F5F5;
             --white-sec: #A3A3A3;
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --border-highlight: rgba(193, 18, 31, 0.35);
             --font-heading: 'Bebas Neue', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
@@ -310,6 +312,95 @@
             padding-bottom: 18px;
         }
 
+        /* === EYEBROW (rótulo pequeno acima dos títulos) === */
+        .eyebrow {
+            display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+            color: var(--red-main); margin-bottom: 10px; text-align: center; font-weight: 700;
+        }
+
+        /* === STACK DE VALOR DOS BÔNUS === */
+        .bonus-card {
+            background: linear-gradient(180deg, #171010 0%, #0a0a0a 100%);
+            border: 1px solid rgba(193,18,31,0.25);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 10px 30px rgba(0,0,0,.4);
+            padding: 24px; border-radius: 12px; margin-bottom: 14px;
+            position: relative; overflow: hidden;
+        }
+        .bonus-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--red-main), transparent); opacity: 0.6;
+        }
+        .bonus-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+        .bonus-tag {
+            font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+            color: var(--red-main); background: rgba(193,18,31,0.12); border: 1px solid rgba(193,18,31,0.3);
+            padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+        }
+        .bonus-card h3 { font-family: var(--font-body); font-size: 17px; font-weight: 700; text-transform: none; color: #fff; margin-bottom: 8px; letter-spacing: 0; line-height: 1.3; }
+        .bonus-card p { font-size: 13.5px; color: var(--white-sec); line-height: 1.55; margin-bottom: 14px; }
+        .bonus-value-row {
+            display: flex; align-items: center; justify-content: space-between;
+            border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 12px;
+        }
+        .bonus-value-old { font-size: 13px; color: #666; text-decoration: line-through; }
+        .bonus-value-free { font-size: 13px; font-weight: 800; color: #4ade80; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .value-stack-total {
+            margin-top: 22px; padding: 22px; border-radius: 12px;
+            background: rgba(193,18,31,0.06); border: 1px solid rgba(193,18,31,0.3);
+            text-align: center;
+        }
+        .value-stack-total .stack-label { font-size: 12px; color: var(--white-sec); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+        .value-stack-total .stack-old { font-size: 22px; color: #888; text-decoration: line-through; font-family: var(--font-heading); }
+        .value-stack-total .stack-arrow { color: var(--red-main); font-size: 14px; margin: 4px 0; font-weight: 700; }
+        .value-stack-total .stack-new { font-size: 34px; color: #fff; font-family: var(--font-heading); }
+        .value-stack-total .stack-new span { color: #4ade80; }
+
+        /* === ÁREA DE MEMBROS === */
+        .members-preview { margin-top: 8px; text-align: center; }
+        .members-frame {
+            margin-top: 24px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border-subtle);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative; background: #0a0a0a;
+        }
+        .members-frame .browser-bar {
+            display: flex; align-items: center; gap: 6px; padding: 12px 14px; background: #111; border-bottom: 1px solid var(--border-subtle);
+        }
+        .browser-bar span { width: 8px; height: 8px; border-radius: 50%; background: #333; }
+        .browser-bar span:nth-child(1) { background: var(--red-main); }
+        .members-frame img { width: 100%; display: block; }
+
+        /* === PARA QUEM É === */
+        .audience-list { list-style: none; padding: 0; margin-top: 22px; display: flex; flex-direction: column; gap: 12px; }
+        .audience-list li {
+            display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: #d1d1d1; line-height: 1.55; font-weight: 400;
+            background: rgba(255,255,255,0.015); border: 1px solid var(--border-subtle); padding: 15px 16px; border-radius: 8px;
+        }
+        .audience-check {
+            flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: rgba(193,18,31,0.12);
+            display: flex; align-items: center; justify-content: center; margin-top: 1px;
+        }
+        .audience-check svg { width: 11px; height: 11px; stroke: var(--red-main); stroke-width: 3; fill: none; }
+
+        /* === DEPOIMENTOS === */
+        .testimonials-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+        .testimonial-card {
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle);
+            padding: 20px; border-radius: 10px;
+        }
+        .t-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .t-user-info { display: flex; align-items: center; gap: 10px; }
+        .t-avatar {
+            width: 32px; height: 32px; border-radius: 50%; background: #111;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(193, 18, 31, 0.25); flex-shrink: 0;
+        }
+        .t-avatar svg { width: 18px; height: 18px; stroke: #777; stroke-width: 1.5; }
+        .t-name { font-size: 13.5px; font-weight: 600; color: var(--white-main); font-family: var(--font-body); }
+        .t-stars { display: flex; gap: 2px; }
+        .t-stars svg { width: 13px; height: 13px; fill: var(--red-main); }
+        .t-stars svg.empty { fill: none; stroke: var(--red-main); stroke-width: 1.5; }
+        .t-comment { font-size: 13.5px; color: #a1a1a1; line-height: 1.55; font-style: italic; }
+
         /* === 9. FOOTER INSTITUCIONAL === */
         .footer { text-align: center; padding: 40px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 60px; }
         .footer p { font-size: 12px; color: #555; line-height: 1.5; margin-bottom: 10px; }
@@ -366,21 +457,23 @@ src="https://www.facebook.com/tr?id=4635192300140692&ev=PageView&noscript=1"
             
             <!-- HOOK FORTE -->
             <h1>
-                <span class="white">NÃO FECHE ESSA PÁGINA!</span>
-                <span class="red">TEM ALGO AINDA MELHOR ESPERANDO POR VOCÊ.</span>
+                <span class="white">ESPERA. NÃO FECHE ESSA PÁGINA.</span>
+                <span class="red">O QUE VOCÊ COMPROU É SÓ O COMEÇO.</span>
             </h1>
-            <p class="subheadline">Você já deu o primeiro passo. Agora, domine as estratégias secretas do <strong>Método da Conexão Masculina</strong> para conduzir conversas com confiança e evoluir relacionamentos de forma natural.</p>
+            <p class="subheadline">Saber se aproximar é só a primeira camada. Sem <strong>conexão emocional real</strong>, toda conversa esfria, todo match vira silêncio e você volta pra estaca zero. O <strong>Método da Conexão Masculina</strong> é a continuação natural — mais avançado, mais completo e feito pra quem já deu o primeiro passo e não quer parar no meio do caminho.</p>
             
-            <a href="#oferta" class="btn">Ver oferta</a>
+            <a href="#oferta" class="btn">Quero o Método Completo</a>
             
             <!-- DOWNSELL -->
-            <a href="https://homemdepresenca.github.io/conexaomasculina" class="downsell-btn">Não, obrigado. Eu não quero aprender a criar conexão profunda e prefiro continuar como estou.</a>
+            <a href="https://homemdepresenca.github.io/conexaomasculina" class="downsell-btn">Não, obrigado. Prefiro travar nas conversas e continuar perdendo interesse antes do primeiro encontro.</a>
         </section>
 
         <div class="section-divider"></div>
 
         <section class="features scroll-reveal">
-            <h2 class="section-title">O que você vai <span>aprender</span></h2>
+            <span class="eyebrow">Conteúdo Avançado • Nível 2 Desbloqueado</span>
+            <h2 class="section-title">O que você vai <span>dominar</span></h2>
+            <p style="font-size: 14px; color: var(--white-sec); text-align: center; margin-top: -18px; margin-bottom: 28px; line-height: 1.6;">Enquanto a maioria trava depois do "oi", você vai saber exatamente como transformar interesse em conexão real — e conexão em relacionamento.</p>
             
             <div class="card">
                 <h3>🧠 Módulo 1: Como criar conexão emocional</h3>
@@ -426,11 +519,178 @@ src="https://www.facebook.com/tr?id=4635192300140692&ev=PageView&noscript=1"
                 </ul>
             </div>
             
-            <div class="card" style="border-color: var(--red-main);">
-                <h3>🎁 Bônus Exclusivos</h3>
-                <ul class="module-list">
-                    <li>Acesso imediato a materiais complementares desenhados para acelerar seus resultados práticos ainda hoje.</li>
-                </ul>
+            <div class="bonus-card">
+                <div class="bonus-top">
+                    <h3 style="margin-bottom:0;">Bônus Exclusivos</h3>
+                    <span class="bonus-tag">Bônus</span>
+                </div>
+                <p>Acesso a materiais complementares cujo sua participação é essencial na evolução acelerada dos seus resultados.</p>
+                <div class="bonus-value-row">
+                    <span class="bonus-value-free">Modelos que fazem a diferença</span>
+                </div>
+            </div>
+
+
+            <div class="value-stack-total">
+                <div class="stack-label">Valor total do que você recebe hoje</div>
+                <div class="stack-old">R$ 549,00</div>
+                <div class="stack-arrow">▼ POR APENAS ▼</div>
+                <div class="stack-new"><span>R$</span> 47,90</div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- ==========================================
+             ÁREA DE MEMBROS (IMAGEM ÚNICA)
+             Substitua pelo arquivo real da área de membros
+             mostrando os módulos extras deste upsell.
+             Nome sugerido: area-membros-conexao.jpg
+             Deve estar na MESMA PASTA do arquivo .html
+             ========================================== -->
+        <section class="members-preview scroll-reveal">
+            <span class="eyebrow">Prévia Real • Sua Nova Área de Membros</span>
+            <h2 class="section-title" style="font-size: 30px;">Os Novos <span>Módulos</span></h2>
+            <p style="font-size: 14px; color: var(--white-sec); font-weight: 400; line-height: 1.6;">Tudo liberado na mesma plataforma que você já conhece, organizado ao lado do conteúdo que você já tem.</p>
+            <div class="members-frame">
+                <div class="browser-bar"><span></span><span></span><span></span></div>
+                <img src="aba3eb0f-bec4-4913-b120-c4e4c6e5cff4.jpg" alt="Área de Membros com os módulos do Método da Conexão Masculina" loading="lazy">
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- ==========================================
+             PARA QUEM É ESTE MÉTODO
+             ========================================== -->
+        <section class="audience scroll-reveal">
+            <h2 class="section-title" style="font-size: 30px;">Ideal Pra <span>Quem</span></h2>
+            <ul class="audience-list">
+                <li>
+                    <span class="audience-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                    Já sabe puxar assunto, mas vê a conversa esfriar depois de alguns dias.
+                </li>
+                <li>
+                    <span class="audience-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                    Sente que fica "só na amizade" mesmo quando existia clima no início.
+                </li>
+                <li>
+                    <span class="audience-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                    Quer transformar interesse inicial em algo sério, sem parecer carente.
+                </li>
+                <li>
+                    <span class="audience-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                    Já aplicou o método principal e quer o próximo nível da conversa.
+                </li>
+            </ul>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- ==========================================
+             DEPOIMENTOS DESTE UPSELL
+             ========================================== -->
+        <section class="social-proof scroll-reveal">
+            <span class="eyebrow">Quem Já Adicionou Este Método</span>
+            <h2 class="section-title" style="font-size: 30px;">O Que Estão <span>Dizendo</span></h2>
+
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+                    <div class="t-header">
+                        <div class="t-user-info">
+                            <div class="t-avatar">
+                                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 19.5c1.6-3.4 4.4-5 7.5-5s5.9 1.6 7.5 5" stroke-linecap="round"/></svg>
+                            </div>
+                            <span class="t-name">Carlos H.</span>
+                        </div>
+                        <div class="t-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <p class="t-comment">"Gostei bastante da parte sobre conexão e conversas. É um complemento muito bom para o conteúdo principal."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="t-header">
+                        <div class="t-user-info">
+                            <div class="t-avatar">
+                                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 19.5c1.6-3.4 4.4-5 7.5-5s5.9 1.6 7.5 5" stroke-linecap="round"/></svg>
+                            </div>
+                            <span class="t-name">André V.</span>
+                        </div>
+                        <div class="t-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg class="empty" viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <p class="t-comment">"Achei que seria só mais conteúdo repetido, mas trouxe vários pontos que eu nunca tinha parado para pensar."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="t-header">
+                        <div class="t-user-info">
+                            <div class="t-avatar">
+                                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 19.5c1.6-3.4 4.4-5 7.5-5s5.9 1.6 7.5 5" stroke-linecap="round"/></svg>
+                            </div>
+                            <span class="t-name">Felipe G.</span>
+                        </div>
+                        <div class="t-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <p class="t-comment">"Valeu muito a pena pegar junto. As aulas são objetivas e ajudam a entender melhor alguns erros que afastam o interesse."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="t-header">
+                        <div class="t-user-info">
+                            <div class="t-avatar">
+                                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 19.5c1.6-3.4 4.4-5 7.5-5s5.9 1.6 7.5 5" stroke-linecap="round"/></svg>
+                            </div>
+                            <span class="t-name">Bruno L.</span>
+                        </div>
+                        <div class="t-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg class="empty" viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <p class="t-comment">"Material bem organizado. Gostei principalmente da parte sobre sinais de interesse e comunicação."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="t-header">
+                        <div class="t-user-info">
+                            <div class="t-avatar">
+                                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 19.5c1.6-3.4 4.4-5 7.5-5s5.9 1.6 7.5 5" stroke-linecap="round"/></svg>
+                            </div>
+                            <span class="t-name">Thiago R.</span>
+                        </div>
+                        <div class="t-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <p class="t-comment">"Foi o que mais me chamou atenção depois da compra principal. Tem dicas simples, mas que fazem bastante sentido quando você aplica. 👊🔥"</p>
+                </div>
+
             </div>
         </section>
 
@@ -442,21 +702,22 @@ src="https://www.facebook.com/tr?id=4635192300140692&ev=PageView&noscript=1"
             <h2 style="color: #fff; font-size: 28px; font-family: var(--font-heading);">
                 MÉTODO DA CONEXÃO MASCULINA
             </h2>
+            <p style="font-size: 13px; color: var(--white-sec); margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">4 módulos + 3 bônus exclusivos • Valor real R$ 549,00</p>
 
             <div class="price-container">
-                <p class="price-label">Por apenas</p>
+                <p class="price-label">Hoje, por apenas</p>
                 <p class="price-value"><span>R$</span> 47,90</p>
             </div>
 
-            <a href="https://pay.kirvano.com/ff7f9651-81cf-457c-be1c-572bdaf3db28" class="btn" style="margin-bottom: 15px;">Quero o método por R$ 47,90</a>
+            <a href="https://pay.kirvano.com/ff7f9651-81cf-457c-be1c-572bdaf3db28" class="btn" style="margin-bottom: 15px;">Sim, Quero Completar Meu Método</a>
             
             <!-- DOWNSELL NA OFERTA -->
-            <a href="https://homemdepresenca.github.io/conexaomasculina" class="downsell-btn">Não, obrigado. Eu não quero aprender a criar conexão profunda e prefiro continuar como estou.</a>
+            <a href="https://homemdepresenca.github.io/conexaomasculina" class="downsell-btn">Não, obrigado. Prefiro travar nas conversas e continuar perdendo interesse antes do primeiro encontro.</a>
 
             <div class="guarantee">
                 <div class="guarantee-icon">🛡️</div>
                 <h3>Garantia Mantida</h3>
-                <p>Assim como na sua primeira compra, este material adicional está coberto pela nossa garantia incondicional. Se não gostar, basta solicitar o reembolso.</p>
+                <p>Assim como na sua primeira compra, este material adicional está coberto pela nossa garantia incondicional. Se não sentir o valor, basta pedir o reembolso — sem perguntas.</p>
             </div>
         </section>
 
