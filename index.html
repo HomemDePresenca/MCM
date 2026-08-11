@@ -275,7 +275,23 @@
         .price-value span {
             color: #22c55e;
         }
-        
+        .price-installments {
+            font-size: 12px; color: #777; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;
+            margin-top: 10px;
+        }
+
+        /* NOVO: selos de segurança perto do CTA final */
+        .security-badges {
+            display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 18px; margin-bottom: 4px; flex-wrap: wrap;
+        }
+        .security-item {
+            display: flex; align-items: center; gap: 6px; font-size: 10.5px; color: #999;
+            text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600;
+            border: 1px solid var(--border-subtle); border-radius: 20px; padding: 7px 12px;
+            background: rgba(255,255,255,0.02);
+        }
+        .security-item svg { width: 13px; height: 13px; stroke: var(--red-main); fill: none; stroke-width: 2; flex-shrink: 0; }
+
         /* GARANTIA DENTRO DA OFERTA */
         .guarantee { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
         .guarantee-icon { font-size: 32px; margin-bottom: 12px; }
@@ -341,6 +357,19 @@
             display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
             color: var(--red-main); margin-bottom: 10px; text-align: center; font-weight: 700;
         }
+
+        /* NOVO: barra de números / prova social quantitativa */
+        .trust-stats {
+            display: flex; justify-content: center; align-items: stretch; gap: 0;
+            margin: 22px auto 8px; max-width: 360px;
+            border: 1px solid var(--border-subtle); border-radius: 10px; overflow: hidden;
+            background: rgba(255,255,255,0.02);
+        }
+        .trust-stat { flex: 1; text-align: center; padding: 18px 10px; }
+        .trust-stat + .trust-stat { border-left: 1px solid var(--border-subtle); }
+        .trust-num { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: var(--font-heading); font-size: 28px; color: var(--red-main); letter-spacing: 1px; line-height: 1; }
+        .trust-num svg { width: 16px; height: 16px; fill: var(--red-main); }
+        .trust-label { display: block; font-size: 10px; color: var(--white-sec); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 8px; font-weight: 500; line-height: 1.4; }
 
         /* === STACK DE VALOR DOS BÔNUS === */
         .bonus-card {
@@ -748,6 +777,17 @@ src="https://www.facebook.com/tr?id=4635192300140692&ev=PageView&noscript=1"
             <span class="eyebrow">Quem Já Adicionou Este Método</span>
             <h2 class="section-title" style="font-size: 30px;">O Que Estão <span>Dizendo</span></h2>
 
+            <div class="trust-stats">
+                <div class="trust-stat">
+                    <span class="trust-num">+270</span>
+                    <span class="trust-label">Alunos já adicionaram este método</span>
+                </div>
+                <div class="trust-stat">
+                    <span class="trust-num">4.7 <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7L12 2z"/></svg></span>
+                    <span class="trust-label">Média de +180 avaliações</span>
+                </div>
+            </div>
+
             <div class="testimonials-grid">
 
                 <div class="testimonial-card">
@@ -1021,9 +1061,26 @@ src="https://www.facebook.com/tr?id=4635192300140692&ev=PageView&noscript=1"
             <div class="price-container">
                 <p class="price-label">Hoje, por apenas</p>
                 <p class="price-value"><span>R$</span> 47,90</p>
+                <p class="price-installments">à vista no Pix ou em até 8x de R$6,96 sem juros no cartão</p>
             </div>
 
             <a href="https://pay.kirvano.com/ff7f9651-81cf-457c-be1c-572bdaf3db28" class="btn" style="margin-bottom: 15px;">Sim, Quero Completar Meu Método</a>
+
+            <!-- NOVO: selos de segurança perto do CTA final -->
+            <div class="security-badges">
+                <div class="security-item">
+                    <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="1.5"></rect><path d="M7 10V7a5 5 0 0 1 10 0v3"></path></svg>
+                    Compra 100% Segura
+                </div>
+                <div class="security-item">
+                    <svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"></path></svg>
+                    Pagamento via Pix
+                </div>
+                <div class="security-item">
+                    <svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"></rect><line x1="2.5" y1="9.5" x2="21.5" y2="9.5"></line></svg>
+                    Cartão em até 8x
+                </div>
+            </div>
             
             <!-- DOWNSELL NA OFERTA (versão suave) -->
             <div class="downsell-wrap">
@@ -1061,6 +1118,16 @@ src="https://www.facebook.com/tr?id=4635192300140692&ev=PageView&noscript=1"
                 </button>
                 <div class="faq-content">
                     <p>O acesso é 100% imediato. Como o seu pagamento principal já foi aprovado, assim que adicionar esta extensão, os dados de login e todos os módulos adicionais serão enviados automaticamente para o seu e-mail cadastrado.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger">
+                    <span>Posso parcelar essa compra?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-content">
+                    <p>Sim. É um pagamento único (não é assinatura) e pode ser feito à vista no Pix ou parcelado em até 8x sem juros no cartão de crédito.</p>
                 </div>
             </div>
 
